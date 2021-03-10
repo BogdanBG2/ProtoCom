@@ -1,0 +1,84 @@
+a) (cu @8.8.8.8 in caz de eroare)
+
+dig A single-v4.protocoale.xyz +short
+127.0.0.1
+dig A single.protocoale.xyz +short
+127.0.0.1
+dig A multi-v4.protocoale.xyz +short
+127.2.2.2
+127.1.1.1
+127.3.3.3
+127.4.4.4
+dig A multi.protocoale.xyz +short
+127.1.1.1
+127.4.4.4
+127.2.2.2
+127.3.3.3
+dig A protocoale.protocoale.xyz +short
+127.42.42.42
+
+b)
+dig AAAA single-v6.protocoale.xyz +short
+::1
+dig AAAA single.protocoale.xyz +short
+::1
+dig AAAA multi-v6.protocoale.xyz +short
+::4
+::3
+::2
+::1
+dig AAAA multi.protocoale.xyz +short
+::3
+::2
+::1
+::4
+
+c)
+dig MX protocoale.xyz
+; <<>> DiG 9.11.5-P1-1ubuntu2.6-Ubuntu <<>> MX protocoale.xyz
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 38813
+;; flags: qr rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;protocoale.xyz.			IN	MX
+
+;; ANSWER SECTION:
+protocoale.xyz.		196	IN	MX	10 alt1.gmail-smtp-in.l.google.com.
+protocoale.xyz.		196	IN	MX	30 alt3.gmail-smtp-in.l.google.com.
+protocoale.xyz.		196	IN	MX	20 alt2.gmail-smtp-in.l.google.com.
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53)
+;; WHEN: Mi apr 15 20:26:57 EEST 2020
+;; MSG SIZE  rcvd: 132
+
+
+d)
+dig A youtube.com +noall +authority +short
+; <<>> DiG 9.11.3-1ubuntu1.11-Ubuntu <<>> A youtube.com +noall +authority
+;; global options: +cmd
+
+e)
+dig 114.179.13.90 google.com +short
+216.58.214.206
+dig 193.58.204.59 google.com +short
+172.217.19.110
+
+f) Am creat fisierul "bulk", dupa care am rulat comanda: dig @8.8.8.8 -f bulk +noall +answer
+
+g) dig test.dorinel.protocoale.xyz +noall +answer +trace
+
+protocoale.xyz.         3600    IN      NS      ns2dqr.name.com.
+protocoale.xyz.         3600    IN      NS      ns3hjx.name.com.
+protocoale.xyz.         3600    IN      NS      ns4lrt.name.com.
+dorinel.protocoale.xyz. 300     IN      NS      potato.dfilip.xyz.
+
+h) dig -x 8.8.8.8 +noall +answer
+
+; <<>> DiG 9.11.5-P1-1ubuntu2.6-Ubuntu <<>> -x 8.8.8.8 +noall +answer
+;; global options: +cmd
+8.8.8.8.in-addr.arpa.	12709	IN	PTR	dns.google.
